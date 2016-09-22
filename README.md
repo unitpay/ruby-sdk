@@ -9,9 +9,9 @@
 Теперь включите в проект с помощью
 `require 'unitpay_api'`
 ##Примеры использования апи для фраймворка Rails
-Пример использования апи для отображения формы:
+#Пример использования апи для отображения формы:
 
-`
+```ruby
 class UnitpayController < ApplicationController
   def payment
   	secretKey = 'asdfsd3243adsfa32fsa2345r3e3w3rf'
@@ -24,12 +24,12 @@ class UnitpayController < ApplicationController
     url = unitpay.form(publicKey, summ, account, desc)
     redirect_to url
   end
-end
-`
+end```
 
-Пример использования апи для написания запросов к сервису unitpay.ru
+#Пример использования апи для написания запросов к сервису unitpay.ru
 
-`class UnitpayController < ApplicationController
+```ruby
+class UnitpayController < ApplicationController
   def payment
 
     secretKey = 'asdfsd3243adsfa32fsa2345r3e3w3rf'
@@ -72,12 +72,12 @@ end
         error = response['error']['message']
     end
   end
-end`
+end```
 
 
-пример callback'а
-
-`class UnitpayController < ApplicationController
+#пример callback'а
+```ruby
+class UnitpayController < ApplicationController
   def callback
     secretKey = 'asdfsd3243adsfa32fsa2345r3e3w3rf'
     summ = '10.00'
@@ -120,5 +120,5 @@ end`
         render :json => unitpay.getErrorHandlerResponse(error)
     end 
   end
-end`
+end```
 
