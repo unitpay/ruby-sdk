@@ -6,15 +6,15 @@ gem 'unitpay-api'
 ```
 И затем выполните команду
 ```ruby
-    bundle
+bundle
 ```
 Или установите вручную с помощью
 ```ruby
-    gem install unitpay_api
+gem install unitpay_api
 ```
 Теперь включите в проект с помощью
 ```ruby
-    require 'unitpay_api'
+require 'unitpay_api'
 ```    
 ##Примеры использования апи для фраймворка Rails
 ###Пример использования апи для отображения формы:
