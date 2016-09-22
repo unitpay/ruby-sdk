@@ -1,13 +1,13 @@
 #Unitpay
 ##Установка
 Внесите эту строчку в ваш gem файл
-`gem 'unitpay-api'`
+    gem 'unitpay-api'
 И затем выполните команду
-`bundle`
+    bundle
 Или установите вручную с помощью
-`gem install unitpay_api`
+    gem install unitpay_api
 Теперь включите в проект с помощью
-`require 'unitpay_api'`
+    require 'unitpay_api'
 ##Примеры использования апи для фраймворка Rails
 #Пример использования апи для отображения формы:
 
@@ -24,7 +24,8 @@ class UnitpayController < ApplicationController
     url = unitpay.form(publicKey, summ, account, desc)
     redirect_to url
   end
-end```
+end
+```
 
 #Пример использования апи для написания запросов к сервису unitpay.ru
 
@@ -72,7 +73,8 @@ class UnitpayController < ApplicationController
         error = response['error']['message']
     end
   end
-end```
+end
+```
 
 
 #пример callback'а
@@ -120,5 +122,6 @@ class UnitpayController < ApplicationController
         render :json => unitpay.getErrorHandlerResponse(error)
     end 
   end
-end```
+end
+```
 
