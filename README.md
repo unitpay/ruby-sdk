@@ -11,7 +11,8 @@
 ##Примеры использования апи для фраймворка Rails
 Пример использования апи для отображения формы:
 
-`class UnitpayController < ApplicationController
+`
+class UnitpayController < ApplicationController
   def payment
   	secretKey = 'asdfsd3243adsfa32fsa2345r3e3w3rf'
   	publicKey = '9978-2bfc2'
@@ -23,7 +24,8 @@
     url = unitpay.form(publicKey, summ, account, desc)
     redirect_to url
   end
-end`
+end
+`
 
 Пример использования апи для написания запросов к сервису unitpay.ru
 
