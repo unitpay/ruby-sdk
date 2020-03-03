@@ -4,8 +4,8 @@ require 'net/http'
 require 'json'
 
 class UnitPay
-	def initialize(secretKey)
-		@formUrl = 'https://unitpay.ru/pay/'
+	def initialize(domain, secretKey)
+		@formUrl = 'https://' + domain + '/pay/'
 		@secretKey = secretKey
 
 		@supportedUnitpayMethods = ['initPayment', 'getPayment']
@@ -21,7 +21,7 @@ class UnitPay
         	'52.19.56.234',
         	'127.0.0.1' # for debug
 		]
-		@apiUrl = 'https://unitpay.ru/api'
+		@apiUrl = 'https://' + domain + '/api'
 	end
 	def form(publicKey, sum, account, desc, currency = 'RUB', locale = 'ru')
 

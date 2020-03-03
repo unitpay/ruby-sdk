@@ -22,25 +22,27 @@ require 'unitpay_api'
 ```ruby
 class UnitpayController < ApplicationController
   def payment
+    domain = 'unitpay.money' # Your working domain: unitpay.money or unitpay.ru
   	secretKey = 'asdfsd3243adsfa32fsa2345r3e3w3rf'
   	publicKey = '9978-2bfc2'
   	summ = '10.00'
   	account = 'asdf-1234-fds1'
   	desc = 'Платеж по заказу'
   	
-    unitpay = UnitPay.new(secretKey)
+    unitpay = UnitPay.new(domain, secretKey)
     url = unitpay.form(publicKey, summ, account, desc)
     redirect_to url
   end
 end
 ```
 
-###Пример использования апи для написания запросов к сервису unitpay.ru
+###Пример использования апи для написания запросов к сервисам unitpay.ru и unitpay.money
 
 ```ruby
 class UnitpayController < ApplicationController
   def payment
 
+    domain = 'unitpay.money' # Your working domain: unitpay.money or unitpay.ru
     secretKey = 'asdfsd3243adsfa32fsa2345r3e3w3rf'
     publicKey = '9978-2bfc2'
     summ = '10.00'
@@ -49,7 +51,7 @@ class UnitpayController < ApplicationController
     currency = 'RUB'
     projectId = '9978'
 
-    unitpay = UnitPay.new(secretKey)
+    unitpay = UnitPay.new(domain, secretKey)
     response = unitpay.api('initPayment', {
         'account' => account,
         'desc' => desc,
@@ -89,6 +91,7 @@ end
 ```ruby
 class UnitpayController < ApplicationController
   def callback
+    domain = 'unitpay.money' # Your working domain: unitpay.money or unitpay.ru
     secretKey = 'asdfsd3243adsfa32fsa2345r3e3w3rf'
     summ = '10.00'
     account = 'asdf-1234-fds1'
@@ -96,7 +99,7 @@ class UnitpayController < ApplicationController
     projectId = '9978'
 
     begin
-        unitpay = UnitPay.new(secretKey)
+        unitpay = UnitPay.new(domain, secretKey)
         method = params[:method]
         if params[:params].nil?
           p = {}
