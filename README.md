@@ -16,8 +16,8 @@ gem install unitpay_api
 ```ruby
 require 'unitpay_api'
 ```    
-##Примеры использования апи для фраймворка Rails
-###Пример использования апи для отображения формы:
+##Примеры использования API для фреймворка Rails
+###Пример использования API для отображения формы:
 
 ```ruby
 class UnitpayController < ApplicationController
@@ -36,7 +36,7 @@ class UnitpayController < ApplicationController
 end
 ```
 
-###Пример использования апи для написания запросов к сервисам unitpay.ru и unitpay.money
+###Пример использования API для написания запросов к сервисам unitpay.ru и unitpay.money
 
 ```ruby
 class UnitpayController < ApplicationController
