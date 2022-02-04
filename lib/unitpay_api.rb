@@ -16,28 +16,27 @@ class UnitPay
 		@supportedPartnerMethods = ['check', 'pay', 'error']
 		@supportedUnitpayIp = [
 			'31.186.100.49',
-        	'178.132.203.105',
-        	'52.29.152.23',
-        	'52.19.56.234',
-        	'127.0.0.1' # for debug
+			'52.29.152.23',
+			'52.19.56.234',
+			'127.0.0.1' # for debug
 		]
 		@apiUrl = 'https://' + domain + '/api'
 	end
 	def form(publicKey, sum, account, desc, currency = 'RUB', locale = 'ru')
 
 		params = {
-            'account' => account,
-            'currency' => currency,
-            'desc' => desc,
-            'sum' => sum,
-        }
-        if  (defined? @secretKey)
-        	params['signature'] = getSignature(params, "check")
-        end
-        params['locale'] = locale
+			'account' => account,
+			'currency' => currency,
+			'desc' => desc,
+			'sum' => sum,
+		}
+		if  (defined? @secretKey)
+			params['signature'] = getSignature(params, "check")
+		end
+		params['locale'] = locale
 
-        querystring = params.map{|k,v| "#{CGI.escape(k)}=#{CGI.escape(v)}"}.join("&")
-        return @formUrl + publicKey + '?' + querystring
+		querystring = params.map{|k,v| "#{CGI.escape(k)}=#{CGI.escape(v)}"}.join("&")
+		return @formUrl + publicKey + '?' + querystring
 	end
 	def getSignature( params, method = nil )
 		params.delete('sign')
